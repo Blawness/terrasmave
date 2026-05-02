@@ -2,6 +2,7 @@
 
 import { Menu, X, MessageCircle, Instagram, ShoppingBag } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { label: "Varian", href: "#produk" },
@@ -13,6 +14,15 @@ const navLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,7 +45,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+    <nav
+      className={`sticky top-0 z-50 bg-background/95 backdrop-blur transition-shadow duration-300 ${
+        scrolled ? "shadow-md" : "border-b border-border"
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="font-display text-2xl font-bold text-primary tracking-tight">
@@ -55,7 +69,10 @@ export default function Navbar() {
               >
                 {link.label}
                 {activeSection === link.href.slice(1) && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                  <motion.span
+                    layoutId="activeNav"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                  />
                 )}
               </a>
             ))}
@@ -69,7 +86,7 @@ export default function Navbar() {
               className="inline-flex items-center gap-2 text-xs font-semibold text-primary hover:text-red-700 transition-colors"
             >
               <MessageCircle className="h-4 w-4" />
-              +62 812-8181-8892
+              <span className="hidden md:inline">+62 812-8181-8892</span>
             </a>
             <a
               href="https://instagram.com/namadummy"

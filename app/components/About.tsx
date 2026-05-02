@@ -42,7 +42,7 @@ export default function About() {
                 <motion.img
                   style={{ y }}
                   src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&h=700&fit=crop"
-                  alt="Dapur Terrasmave"
+                  alt="Terrasmave - Es krim sandwich homemade dari dapur kami"
                   className="rounded-lg shadow-xl"
                 />
               </div>
@@ -71,9 +71,9 @@ export default function About() {
             </FadeIn>
             <FadeIn delay={0.3}>
               <p className="text-stone-600 leading-relaxed mb-8">
-                Terrasmave menghadirkan es krim sandwich homemade yang dibuat dengan bahan organik pilihan.
-                Setiap sandwich dibuat dengan tangan — dari adonan cookies hingga isian es krim yang creamy.
-                Tanpa pengawet, tanpa pewarna buatan, murni rasa yang lezat.
+                Terrasmave menghadirkan es krim sandwich homemade yang dibuat dengan bahan organik
+                pilihan. Setiap sandwich dibuat dengan tangan — dari adonan cookies hingga isian es
+                krim yang creamy. Tanpa pengawet, tanpa pewarna buatan, murni rasa yang lezat.
               </p>
             </FadeIn>
 

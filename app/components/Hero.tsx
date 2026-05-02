@@ -5,7 +5,8 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
-  const bannerText = "✦ Exclusively at Terrasmave";
+  const bannerText =
+    "✦ Es Krim Sandwich Homemade ✦ Dibuat Fresh Setiap Hari ✦ 100% Bahan Organik ✦ Pesan via WhatsApp";
   const repeatCount = 10;
 
   return (
@@ -29,10 +30,15 @@ export default function Hero() {
               HOMEMADE
             </h1>
             <p className="text-stone-500 text-lg mb-8 max-w-md mx-auto lg:mx-0">
-              Es krim sandwich homemade dengan bahan organik pilihan. Dibuat fresh setiap hari, tanpa pengawet dan pewarna buatan.
+              Es krim sandwich homemade dengan bahan organik pilihan. Dibuat fresh setiap hari,
+              tanpa pengawet dan pewarna buatan.
             </p>
             <div className="flex gap-3 justify-center lg:justify-start flex-wrap">
-              <Button asChild size="lg" className="bg-primary hover:bg-red-700 text-white px-8">
+              <Button
+                asChild
+                size="lg"
+                className="bg-primary hover:bg-red-700 text-white px-8 shadow-lg shadow-red-500/25"
+              >
                 <a href="https://wa.me/6281281818892" target="_blank" rel="noopener noreferrer">
                   Pesan Sekarang
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -42,7 +48,7 @@ export default function Hero() {
                 variant="outline"
                 asChild
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-white px-8"
+                className="border-2 border-primary/30 text-primary hover:bg-primary/5 hover:border-primary px-8"
               >
                 <a href="#produk">Lihat Menu</a>
               </Button>
@@ -56,14 +62,15 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <div className="relative">
+              <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-110" />
               <motion.div
-                className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white"
-                animate={{ y: [0, -10, 0] }}
+                className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white"
+                animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
                 <img
                   src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=600&fit=crop"
-                  alt="Terrasmave Camilan"
+                  alt="Es krim sandwich Terrasmave"
                   className="w-full h-full object-cover"
                 />
               </motion.div>

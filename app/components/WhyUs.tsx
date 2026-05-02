@@ -1,8 +1,9 @@
 "use client";
 
 import FadeIn from "./FadeIn";
-import { motion, useAnimationControls } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const sellingPoints = [
   { title: "No Pengawet", desc: "Bebas bahan pengawet dan pewarna buatan" },
@@ -31,24 +32,32 @@ const testimonials = [
 
 export default function WhyUs() {
   const [active, setActive] = useState(0);
-  const controls = useAnimationControls();
+  const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const startAutoPlay = () => {
+  const startAutoPlay = useCallback(() => {
     stopAutoPlay();
     intervalRef.current = setInterval(() => {
       setActive((prev) => (prev + 1) % testimonials.length);
     }, 4000);
-  };
+  }, []);
 
-  const stopAutoPlay = () => {
+  const stopAutoPlay = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
-  };
+  }, []);
 
   useEffect(() => {
     startAutoPlay();
     return stopAutoPlay;
-  }, []);
+  }, [startAutoPlay, stopAutoPlay]);
+
+  useEffect(() => {
+    if (isPaused) {
+      stopAutoPlay();
+    } else {
+      startAutoPlay();
+    }
+  }, [isPaused, startAutoPlay, stopAutoPlay]);
 
   const goTo = (index: number) => {
     setActive(index);
@@ -64,8 +73,7 @@ export default function WhyUs() {
   };
 
   return (
-    <section id="kenapa-kami" className="relative py-16 sm:py-20 px-4 bg-background overflow-hidden">
-      <div className="absolute inset-0 velato-gradient-organic pointer-events-none" />
+    <section id="kenapa-kami" className="relative py-16 sm:py-20 px-4 bg-secondary overflow-hidden">
       <div className="max-w-6xl mx-auto relative">
         <FadeIn className="text-center mb-12">
           <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
@@ -86,7 +94,7 @@ export default function WhyUs() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -4, scale: 1.02 }}
-                className="bg-secondary rounded-lg p-5 text-center"
+                className="bg-background rounded-lg p-5 text-center shadow-sm"
               >
                 <h3 className="font-bold text-primary mb-2 text-sm sm:text-base">{title}</h3>
                 <p className="text-stone-500 text-xs sm:text-sm">{desc}</p>
@@ -96,7 +104,11 @@ export default function WhyUs() {
         </FadeIn>
 
         <FadeIn delay={0.3}>
-          <div className="bg-primary rounded-lg p-8 sm:p-12 text-white text-center relative overflow-hidden">
+          <div
+            className="bg-primary rounded-lg p-8 sm:p-12 text-white text-center relative overflow-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-1/2 -translate-y-1/2" />
               <div className="absolute bottom-0 right-0 w-48 h-48 bg-white rounded-full translate-x-1/3 translate-y-1/3" />
@@ -106,35 +118,48 @@ export default function WhyUs() {
             </h3>
 
             <div className="relative max-w-2xl mx-auto">
-              <motion.div
-                className="overflow-hidden"
-                animate={controls}
-              >
-                <motion.div
-                  className="flex"
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={0.3}
-                  onDragEnd={handleDragEnd}
-                  animate={{ x: `-${active * 100}%` }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              <div className="flex items-center justify-center gap-3">
+                <button
+                  onClick={() => goTo((active - 1 + testimonials.length) % testimonials.length)}
+                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                  aria-label="Testimonial sebelumnya"
                 >
-                  {testimonials.map(({ name, text, loc }) => (
-                    <div
-                      key={name}
-                      className="w-full flex-shrink-0 px-2"
-                    >
-                      <div className="bg-white/10 backdrop-blur rounded-lg p-6 sm:p-8">
-                        <p className="text-white/90 text-base sm:text-lg mb-6 italic leading-relaxed">
-                          &ldquo;{text}&rdquo;
-                        </p>
-                        <p className="font-semibold text-white text-lg">{name}</p>
-                        <p className="text-white/60 text-sm">{loc}</p>
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+
+                <div className="flex-1 overflow-hidden">
+                  <motion.div
+                    className="flex"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.3}
+                    onDragEnd={handleDragEnd}
+                    animate={{ x: `-${active * 100}%` }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  >
+                    {testimonials.map(({ name, text, loc }) => (
+                      <div key={name} className="w-full flex-shrink-0 px-2">
+                        <div className="bg-white/10 backdrop-blur rounded-lg p-6 sm:p-8">
+                          <Quote className="h-8 w-8 text-white/30 mx-auto mb-4" />
+                          <p className="text-white/90 text-base sm:text-lg mb-6 italic leading-relaxed">
+                            &ldquo;{text}&rdquo;
+                          </p>
+                          <p className="font-semibold text-white text-lg">{name}</p>
+                          <p className="text-white/60 text-sm">{loc}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </motion.div>
-              </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
+
+                <button
+                  onClick={() => goTo((active + 1) % testimonials.length)}
+                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                  aria-label="Testimonial berikutnya"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
 
               <div className="flex justify-center gap-2 mt-6">
                 {testimonials.map((_, i) => (
