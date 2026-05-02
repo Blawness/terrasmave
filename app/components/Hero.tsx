@@ -9,23 +9,27 @@ export default function Hero() {
   const repeatCount = 10;
 
   return (
-    <section className="relative overflow-hidden bg-background">
+    <section className="relative overflow-hidden bg-background velato-pattern-dots">
       <div className="max-w-6xl mx-auto px-4 py-12 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="text-center lg:text-left">
+          <motion.div
+            className="text-center lg:text-left"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
             <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">
               Homemade · Organik · Penuh Cinta
             </p>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary leading-none tracking-tight mb-6">
-              60+
+              ES KRIM
               <br />
-              CAMILAN
+              SANDWICH
               <br />
               HOMEMADE
             </h1>
             <p className="text-stone-500 text-lg mb-8 max-w-md mx-auto lg:mx-0">
-              Camilan sehat dari dapur rumahan kami. Dibuat dengan bahan organik pilihan, tanpa
-              pengawet dan pewarna buatan.
+              Es krim sandwich homemade dengan bahan organik pilihan. Dibuat fresh setiap hari, tanpa pengawet dan pewarna buatan.
             </p>
             <div className="flex gap-3 justify-center lg:justify-start flex-wrap">
               <Button asChild size="lg" className="bg-primary hover:bg-red-700 text-white px-8">
@@ -43,30 +47,62 @@ export default function Hero() {
                 <a href="#produk">Lihat Menu</a>
               </Button>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative flex justify-center">
+          <motion.div
+            className="relative flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
             <div className="relative">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white">
+              <motion.div
+                className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
                 <img
                   src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=600&fit=crop"
                   alt="Terrasmave Camilan"
                   className="w-full h-full object-cover"
                 />
-              </div>
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold text-center leading-tight shadow-lg">
+              </motion.div>
+
+              <motion.div
+                className="absolute -top-4 -right-4 w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold text-center leading-tight shadow-lg"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              >
                 100%
                 <br />
                 Organik
-              </div>
-              <div className="absolute -bottom-2 -left-6 w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center shadow-lg">
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-2 -left-6 w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center shadow-lg"
+                animate={{ y: [0, 8, 0], rotate: [0, 10, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              >
                 <span className="text-2xl">🍪</span>
-              </div>
-              <div className="absolute top-8 -left-8 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center shadow">
-                <span className="text-xl"></span>
-              </div>
+              </motion.div>
+
+              <motion.div
+                className="absolute top-8 -left-8 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center shadow"
+                animate={{ y: [0, 6, 0], rotate: [0, -15, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+              >
+                <span className="text-xl">🌿</span>
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-6 right-8 w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center shadow"
+                animate={{ y: [0, -8, 0], rotate: [0, 20, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              >
+                <span className="text-xl">❤️</span>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

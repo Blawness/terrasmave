@@ -1,10 +1,10 @@
 "use client";
 
 import { Menu, X, MessageCircle, Instagram, ShoppingBag } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "Flavors", href: "#produk" },
+  { label: "Varian", href: "#produk" },
   { label: "Tentang", href: "#tentang" },
   { label: "Kenapa Kami", href: "#kenapa-kami" },
   { label: "Kontak", href: "#kontak" },
@@ -12,6 +12,27 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -60% 0px" }
+    );
+
+    navLinks.forEach((link) => {
+      const el = document.querySelector(link.href);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
@@ -26,9 +47,16 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-stone-600 hover:text-primary transition-colors uppercase tracking-wide"
+                className={`text-sm font-medium transition-colors uppercase tracking-wide relative ${
+                  activeSection === link.href.slice(1)
+                    ? "text-primary"
+                    : "text-stone-600 hover:text-primary"
+                }`}
               >
                 {link.label}
+                {activeSection === link.href.slice(1) && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                )}
               </a>
             ))}
           </div>
@@ -78,7 +106,11 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block py-2 text-sm font-medium text-stone-600 hover:text-primary uppercase tracking-wide"
+                className={`block py-2 text-sm font-medium uppercase tracking-wide ${
+                  activeSection === link.href.slice(1)
+                    ? "text-primary"
+                    : "text-stone-600 hover:text-primary"
+                }`}
               >
                 {link.label}
               </a>
