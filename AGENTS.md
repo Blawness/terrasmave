@@ -10,17 +10,18 @@ Static landing page for **Terrasmave** (homemade organic ice cream sandwiches). 
 - Tailwind CSS 3 + shadcn/ui (stone base, CSS variables)
 - Framer Motion (animations), Lucide React (icons)
 - Path alias: `@/*` → project root
+- Playwright (E2E testing)
+- Package manager: pnpm
 
 ## Commands
 
 ```
-npm run dev     # dev server
-npm run build   # static export → ./out
-npm run start   # serve build (requires build first)
-npm run lint    # next lint
+pnpm dev     # dev server
+pnpm build   # static export → ./out
+pnpm start   # serve build (requires build first)
+pnpm lint    # next lint
+pnpm test:e2e  # Playwright E2E tests
 ```
-
-No test framework is configured.
 
 ## Critical: Static Export
 
@@ -49,7 +50,7 @@ lib/utils.ts            — cn() helper (clsx + tailwind-merge)
 Only `Button` is installed. To add components:
 
 ```
-npx shadcn@latest add <component-name>
+pnpm dlx shadcn@latest add <component-name>
 ```
 
 Config is in `components.json` — aliases point to `@/components/ui`.
@@ -61,6 +62,10 @@ Config is in `components.json` — aliases point to `@/components/ui`.
 - WhatsApp deep link: `https://wa.me/6281281818892`
 - No `public/` directory exists; all images are external URLs
 - GA4 script in `layout.tsx` is commented out — uncomment and replace `GA_MEASUREMENT_ID` to enable
+
+## Playwright Setup
+
+Playwright browsers require system dependencies (libnspr4, libnss3, libasound2). On this Ubuntu 24.04 environment they were extracted locally to `~/.local/playwright-deps/` and `LD_LIBRARY_PATH` is set automatically in `playwright.config.ts` so tests run without root access.
 
 ## Deployment
 
