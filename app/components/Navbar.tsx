@@ -5,6 +5,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { WHATSAPP_URL, WHATSAPP_DISPLAY, INSTAGRAM_URL } from "../data/constants";
 
 const navLinks = [
   { label: "Varian", href: "/produk" },
@@ -47,16 +48,16 @@ export default function Navbar() {
 
           <div className="hidden sm:flex items-center gap-4">
             <a
-              href="https://wa.me/6281281818892"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-xs font-semibold text-primary hover:text-red-700 transition-colors"
             >
               <MessageCircle className="h-4 w-4" />
-              <span className="hidden md:inline">+62 812-8181-8892</span>
+              <span className="hidden md:inline">{WHATSAPP_DISPLAY}</span>
             </a>
             <a
-              href="https://instagram.com/namadummy"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-stone-400 hover:text-primary transition-colors"
@@ -64,7 +65,7 @@ export default function Navbar() {
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href="https://wa.me/6281281818892"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
@@ -99,7 +100,7 @@ export default function Navbar() {
             ))}
             <div className="flex gap-3 mt-4">
               <a
-                href="https://wa.me/6281281818892"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-md"
@@ -108,7 +109,7 @@ export default function Navbar() {
                 WhatsApp
               </a>
               <a
-                href="https://instagram.com/namadummy"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 border-2 border-primary text-primary text-sm font-semibold px-4 py-2 rounded-md"

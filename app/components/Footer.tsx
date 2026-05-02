@@ -3,6 +3,7 @@
 import { Mail, Phone, MapPin, Instagram, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import FadeIn from "./FadeIn";
+import { WHATSAPP_URL, WHATSAPP_DISPLAY, INSTAGRAM_URL } from "../data/constants";
 
 const navLinks = [
   { label: "Varian", href: "/produk" },
@@ -24,7 +25,7 @@ export default function Footer() {
               </p>
               <div className="flex gap-3">
                 <a
-                  href="https://instagram.com/namadummy"
+                  href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
@@ -33,7 +34,7 @@ export default function Footer() {
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://wa.me/6281281818892"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
@@ -74,7 +75,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="h-4 w-4 shrink-0" />
-                  <span>0812-8181-8892</span>
+                  <span>{WHATSAPP_DISPLAY}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4 shrink-0" />
@@ -92,7 +93,7 @@ export default function Footer() {
                 behind-the-scenes dapur Terrasmave.
               </p>
               <a
-                href="https://instagram.com/namadummy"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 transition-colors rounded-md px-4 py-3 text-sm font-semibold"

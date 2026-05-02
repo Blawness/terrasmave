@@ -3,12 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { WHATSAPP_URL } from "../data/constants";
+
+const BANNER_TEXT =
+  "✦ Es Krim Sandwich Homemade ✦ Dibuat Fresh Setiap Hari ✦ 100% Bahan Organik ✦ Pesan via WhatsApp";
+const BANNER_REPEAT = 10;
 
 export default function Hero() {
-  const bannerText =
-    "✦ Es Krim Sandwich Homemade ✦ Dibuat Fresh Setiap Hari ✦ 100% Bahan Organik ✦ Pesan via WhatsApp";
-  const repeatCount = 10;
-
   return (
     <section className="relative overflow-hidden bg-background velato-pattern-dots">
       <div className="max-w-6xl mx-auto px-4 py-12 sm:py-20">
@@ -39,7 +40,7 @@ export default function Hero() {
                 size="lg"
                 className="bg-primary hover:bg-red-700 text-white px-8 shadow-lg shadow-red-500/25"
               >
-                <a href="https://wa.me/6281281818892" target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   Pesan Sekarang
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
@@ -123,12 +124,12 @@ export default function Hero() {
             repeat: Infinity,
           }}
         >
-          {Array.from({ length: repeatCount }).map((_, i) => (
+          {Array.from({ length: BANNER_REPEAT }).map((_, i) => (
             <span
               key={i}
               className="inline-block px-6 text-white font-bold text-sm uppercase tracking-wider"
             >
-              {bannerText}
+              {BANNER_TEXT}
             </span>
           ))}
         </motion.div>

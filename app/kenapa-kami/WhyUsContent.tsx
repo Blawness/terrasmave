@@ -5,6 +5,10 @@ import { motion } from "framer-motion";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
+const AUTOPLAY_INTERVAL_MS = 4000;
+const DRAG_THRESHOLD_PX = 80;
+const DRAG_ELASTICITY = 0.3;
+
 const sellingPoints = [
   { title: "No Pengawet", desc: "Bebas bahan pengawet dan pewarna buatan" },
   { title: "Fresh Setiap Hari", desc: "Dibuat fresh sesuai pesanan" },
@@ -39,7 +43,7 @@ export default function WhyUsContent() {
     stopAutoPlay();
     intervalRef.current = setInterval(() => {
       setActive((prev) => (prev + 1) % testimonials.length);
-    }, 4000);
+    }, AUTOPLAY_INTERVAL_MS);
   }, []);
 
   const stopAutoPlay = useCallback(() => {
@@ -65,9 +69,9 @@ export default function WhyUsContent() {
   };
 
   const handleDragEnd = (_: unknown, info: { offset: { x: number } }) => {
-    if (info.offset.x > 80) {
+    if (info.offset.x > DRAG_THRESHOLD_PX) {
       goTo((active - 1 + testimonials.length) % testimonials.length);
-    } else if (info.offset.x < -80) {
+    } else if (info.offset.x < -DRAG_THRESHOLD_PX) {
       goTo((active + 1) % testimonials.length);
     }
   };
@@ -132,7 +136,7 @@ export default function WhyUsContent() {
                     className="flex"
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.3}
+                    dragElastic={DRAG_ELASTICITY}
                     onDragEnd={handleDragEnd}
                     animate={{ x: `-${active * 100}%` }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}

@@ -1,6 +1,8 @@
 "use client";
 
 import { products } from "../data/products";
+import type { Product } from "../data/products";
+import { WHATSAPP_URL } from "../data/constants";
 import { MessageCircle } from "lucide-react";
 import Link from "next/link";
 import FadeIn from "./FadeIn";
@@ -8,7 +10,7 @@ import { motion } from "framer-motion";
 
 interface ProductsProps {
   limit?: number;
-  onProductClick?: (product: (typeof products)[number]) => void;
+  onProductClick?: (product: Product) => void;
 }
 
 export default function Products({ limit, onProductClick }: ProductsProps) {
@@ -46,7 +48,7 @@ export default function Products({ limit, onProductClick }: ProductsProps) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <a
-                    href={`https://wa.me/6281281818892?text=Halo, saya mau pesan ${encodeURIComponent(item.name)}`}
+                    href={`${WHATSAPP_URL}?text=Halo, saya mau pesan ${encodeURIComponent(item.name)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}

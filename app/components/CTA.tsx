@@ -3,6 +3,7 @@
 import { MessageCircle, Instagram } from "lucide-react";
 import FadeIn from "./FadeIn";
 import { motion } from "framer-motion";
+import { WHATSAPP_URL, INSTAGRAM_URL } from "../data/constants";
 
 export default function CTA() {
   return (
@@ -42,7 +43,7 @@ export default function CTA() {
           <FadeIn delay={0.3}>
             <div className="flex gap-4 justify-center flex-wrap">
               <a
-                href="https://wa.me/6281281818892"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-md hover:bg-stone-100 transition-colors text-lg shadow-lg"
@@ -51,7 +52,7 @@ export default function CTA() {
                 WhatsApp
               </a>
               <a
-                href="https://instagram.com/namadummy"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-md hover:bg-white/10 transition-colors text-lg"
@@ -66,7 +67,7 @@ export default function CTA() {
 
       <div className="fixed bottom-0 left-0 right-0 z-50 flex sm:hidden border-t border-stone-200 shadow-lg pb-[env(safe-area-inset-bottom)]">
         <a
-          href="https://wa.me/6281281818892"
+          href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-4 bg-primary text-white font-semibold text-sm"
@@ -75,7 +76,7 @@ export default function CTA() {
           WhatsApp
         </a>
         <a
-          href="https://instagram.com/namadummy"
+          href={INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-4 bg-primary/80 text-white font-semibold text-sm"

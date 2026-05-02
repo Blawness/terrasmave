@@ -3,9 +3,7 @@
 import { useState } from "react";
 import Products from "../components/Products";
 import ProductModal from "../components/ProductModal";
-import type { products } from "../data/products";
-
-type Product = (typeof products)[number];
+import type { Product } from "../data/products";
 
 export default function ProductListing() {
   const [selected, setSelected] = useState<Product | null>(null);

@@ -3,6 +3,7 @@
 import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import FadeIn from "../components/FadeIn";
+import { WHATSAPP_URL, WHATSAPP_DISPLAY } from "../data/constants";
 
 const contactInfo = [
   {
@@ -13,7 +14,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Telepon",
-    lines: ["0812-8181-8892"],
+    lines: [WHATSAPP_DISPLAY],
   },
   {
     icon: Mail,
@@ -112,7 +113,7 @@ export default function KontakContent() {
                 siapkan dengan penuh cinta.
               </p>
               <a
-                href="https://wa.me/6281281818892"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-md hover:bg-stone-100 transition-colors text-lg shadow-lg"

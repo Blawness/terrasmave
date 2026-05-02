@@ -3,9 +3,8 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, MessageCircle, ShoppingBag } from "lucide-react";
-import type { products } from "../data/products";
-
-type Product = (typeof products)[number];
+import { WHATSAPP_URL } from "../data/constants";
+import type { Product } from "../data/products";
 
 interface ProductModalProps {
   product: Product | null;
@@ -90,7 +89,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               </div>
 
               <a
-                href={`https://wa.me/6281281818892?text=Halo, saya mau pesan ${encodeURIComponent(product.name)}`}
+                href={`${WHATSAPP_URL}?text=Halo, saya mau pesan ${encodeURIComponent(product.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors text-lg shadow-lg"

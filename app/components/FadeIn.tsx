@@ -12,6 +12,8 @@ interface FadeInProps {
   className?: string;
 }
 
+const VIEWPORT_MARGIN = "-80px";
+
 export default function FadeIn({
   children,
   delay = 0,
@@ -34,7 +36,7 @@ export default function FadeIn({
     <motion.div
       initial={{ opacity: 0, y, x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: VIEWPORT_MARGIN }}
       transition={{ duration, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={className}
     >

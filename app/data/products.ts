@@ -48,3 +48,5 @@ export const products = [
     tag: "New",
   },
 ];
+
+export type Product = (typeof products)[number];
