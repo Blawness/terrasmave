@@ -1,80 +1,47 @@
 "use client";
 
 import { Menu, X, MessageCircle, Instagram, ShoppingBag } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const navLinks = [
-  { label: "Varian", href: "#produk" },
-  { label: "Tentang", href: "#tentang" },
-  { label: "Kenapa Kami", href: "#kenapa-kami" },
-  { label: "Kontak", href: "#kontak" },
+  { label: "Varian", href: "/produk" },
+  { label: "Tentang", href: "/tentang" },
+  { label: "Kenapa Kami", href: "/kenapa-kami" },
+  { label: "Kontak", href: "/kontak" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -60% 0px" }
-    );
-
-    navLinks.forEach((link) => {
-      const el = document.querySelector(link.href);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const pathname = usePathname();
 
   return (
-    <nav
-      className={`sticky top-0 z-50 bg-background/95 backdrop-blur transition-shadow duration-300 ${
-        scrolled ? "shadow-md" : "border-b border-border"
-      }`}
-    >
+    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="font-display text-2xl font-bold text-primary tracking-tight">
+          <Link href="/" className="font-display text-2xl font-bold text-primary tracking-tight">
             Terrasmave
-          </a>
+          </Link>
 
           <div className="hidden sm:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className={`text-sm font-medium transition-colors uppercase tracking-wide relative ${
-                  activeSection === link.href.slice(1)
-                    ? "text-primary"
-                    : "text-stone-600 hover:text-primary"
+                  pathname === link.href ? "text-primary" : "text-stone-600 hover:text-primary"
                 }`}
               >
                 {link.label}
-                {activeSection === link.href.slice(1) && (
+                {pathname === link.href && (
                   <motion.span
                     layoutId="activeNav"
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
                   />
                 )}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -119,18 +86,16 @@ export default function Navbar() {
         {open && (
           <div className="sm:hidden pb-4 border-t border-border mt-2 pt-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={`block py-2 text-sm font-medium uppercase tracking-wide ${
-                  activeSection === link.href.slice(1)
-                    ? "text-primary"
-                    : "text-stone-600 hover:text-primary"
+                  pathname === link.href ? "text-primary" : "text-stone-600 hover:text-primary"
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="flex gap-3 mt-4">
               <a

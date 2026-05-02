@@ -2,12 +2,20 @@
 
 import { products } from "../data/products";
 import { MessageCircle } from "lucide-react";
+import Link from "next/link";
 import FadeIn from "./FadeIn";
 import { motion } from "framer-motion";
 
-export default function Products() {
+interface ProductsProps {
+  limit?: number;
+  onProductClick?: (product: (typeof products)[number]) => void;
+}
+
+export default function Products({ limit, onProductClick }: ProductsProps) {
+  const displayedProducts = limit ? products.slice(0, limit) : products;
+
   return (
-    <section id="produk" className="relative py-16 sm:py-20 px-4 bg-secondary velato-pattern-dots">
+    <section className="relative py-16 sm:py-20 px-4 bg-secondary velato-pattern-dots">
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-12">
           <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
@@ -22,12 +30,13 @@ export default function Products() {
         </FadeIn>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
-          {products.map((item, index) => (
+          {displayedProducts.map((item, index) => (
             <FadeIn key={item.id} delay={index * 0.1}>
               <motion.div
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all group overflow-hidden"
+                className="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all group overflow-hidden cursor-pointer"
+                onClick={() => onProductClick?.(item)}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -40,6 +49,7 @@ export default function Products() {
                     href={`https://wa.me/6281281818892?text=Halo, saya mau pesan ${encodeURIComponent(item.name)}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white text-primary font-semibold px-5 py-2 rounded-full text-sm opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2 shadow-lg"
                   >
                     <MessageCircle className="h-4 w-4" />
@@ -65,19 +75,19 @@ export default function Products() {
           ))}
         </div>
 
-        <FadeIn delay={0.4}>
-          <div className="text-center mt-10">
-            <a
-              href="https://wa.me/6281281818892"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-primary text-primary font-semibold px-8 py-3 rounded-md hover:bg-primary hover:text-white transition-colors"
-            >
-              Lihat Semua Varian
-              <span>→</span>
-            </a>
-          </div>
-        </FadeIn>
+        {limit && (
+          <FadeIn delay={0.4}>
+            <div className="text-center mt-10">
+              <Link
+                href="/produk"
+                className="inline-flex items-center gap-2 border-2 border-primary text-primary font-semibold px-8 py-3 rounded-md hover:bg-primary hover:text-white transition-colors"
+              >
+                Lihat Semua Varian
+                <span>→</span>
+              </Link>
+            </div>
+          </FadeIn>
+        )}
       </div>
     </section>
   );

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -13,7 +16,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Terrasmave – Camilan Homemade Organik",
+  title: {
+    default: "Terrasmave – Camilan Homemade Organik",
+    template: "%s – Terrasmave",
+  },
   description:
     "Terrasmave menyediakan camilan homemade berbahan organik. Pesan via WhatsApp – Jl. Swasembada Barat XIX No.16, Tanjung Priok.",
   openGraph: {
@@ -43,7 +49,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         */}
       </head>
-      <body className={`${playfair.variable} ${inter.variable} font-sans`}>{children}</body>
+      <body className={`${playfair.variable} ${inter.variable} font-sans`}>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <ScrollToTop />
+      </body>
     </html>
   );
 }

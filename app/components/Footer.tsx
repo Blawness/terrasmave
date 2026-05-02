@@ -1,17 +1,18 @@
 "use client";
 
 import { Mail, Phone, MapPin, Instagram, MessageCircle } from "lucide-react";
+import Link from "next/link";
 import FadeIn from "./FadeIn";
 
 const navLinks = [
-  { label: "Varian", href: "#produk" },
-  { label: "Tentang", href: "#tentang" },
-  { label: "Mengapa Kami", href: "#kenapa-kami" },
+  { label: "Varian", href: "/produk" },
+  { label: "Tentang", href: "/tentang" },
+  { label: "Mengapa Kami", href: "/kenapa-kami" },
 ];
 
 export default function Footer() {
   return (
-    <footer id="kontak" className="bg-primary text-white sm:pb-0 pb-20">
+    <footer className="bg-primary text-white sm:pb-0 pb-20">
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <FadeIn direction="up">
@@ -50,9 +51,9 @@ export default function Footer() {
               <ul className="space-y-3 text-sm">
                 {navLinks.map(({ label, href }) => (
                   <li key={label}>
-                    <a href={href} className="text-white/70 hover:text-white transition-colors">
+                    <Link href={href} className="text-white/70 hover:text-white transition-colors">
                       {label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

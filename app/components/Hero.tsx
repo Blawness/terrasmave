@@ -50,7 +50,7 @@ export default function Hero() {
                 size="lg"
                 className="border-2 border-primary/30 text-primary hover:bg-primary/5 hover:border-primary px-8"
               >
-                <a href="#produk">Lihat Menu</a>
+                <a href="/produk">Lihat Menu</a>
               </Button>
             </div>
           </motion.div>
