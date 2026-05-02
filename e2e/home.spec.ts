@@ -40,7 +40,9 @@ test("produk page shows all 6 products and modal works", async ({ page }) => {
   await expect(productHeadings).toHaveCount(6);
 
   await page.getByRole("heading", { name: "Es Krim Sandwich Cokelat", level: 3 }).click();
-  await expect(page.getByRole("heading", { name: "Es Krim Sandwich Cokelat", level: 2 })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Es Krim Sandwich Cokelat", level: 2 })
+  ).toBeVisible();
 
   await page.locator("button[aria-label='Tutup detail produk']").click();
   await expect(page.locator("button[aria-label='Tutup detail produk']")).not.toBeVisible();
