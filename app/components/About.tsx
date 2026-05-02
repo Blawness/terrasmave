@@ -37,7 +37,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <FadeIn direction="right">
-            <div ref={imageRef} className="relative">
+            <div ref={imageRef} className="relative" style={{ position: "relative" }}>
               <div className="w-full max-w-md mx-auto lg:mx-0">
                 <motion.img
                   style={{ y }}
