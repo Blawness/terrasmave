@@ -2,11 +2,9 @@
 
 import FadeIn from "../components/FadeIn";
 import { motion } from "framer-motion";
-import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { useCarousel } from "../hooks/useCarousel";
 
-const AUTOPLAY_INTERVAL_MS = 4000;
-const DRAG_THRESHOLD_PX = 80;
 const DRAG_ELASTICITY = 0.3;
 
 const sellingPoints = [
@@ -35,46 +33,9 @@ const testimonials = [
 ];
 
 export default function WhyUsContent() {
-  const [active, setActive] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const startAutoPlay = useCallback(() => {
-    stopAutoPlay();
-    intervalRef.current = setInterval(() => {
-      setActive((prev) => (prev + 1) % testimonials.length);
-    }, AUTOPLAY_INTERVAL_MS);
-  }, []);
-
-  const stopAutoPlay = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  }, []);
-
-  useEffect(() => {
-    startAutoPlay();
-    return stopAutoPlay;
-  }, [startAutoPlay, stopAutoPlay]);
-
-  useEffect(() => {
-    if (isPaused) {
-      stopAutoPlay();
-    } else {
-      startAutoPlay();
-    }
-  }, [isPaused, startAutoPlay, stopAutoPlay]);
-
-  const goTo = (index: number) => {
-    setActive(index);
-    startAutoPlay();
-  };
-
-  const handleDragEnd = (_: unknown, info: { offset: { x: number } }) => {
-    if (info.offset.x > DRAG_THRESHOLD_PX) {
-      goTo((active - 1 + testimonials.length) % testimonials.length);
-    } else if (info.offset.x < -DRAG_THRESHOLD_PX) {
-      goTo((active + 1) % testimonials.length);
-    }
-  };
+  const { active, goTo, goNext, goPrev, setIsPaused, handleDragEnd } = useCarousel({
+    itemCount: testimonials.length,
+  });
 
   return (
     <section className="relative py-16 sm:py-20 px-4 bg-secondary overflow-hidden">
@@ -124,7 +85,7 @@ export default function WhyUsContent() {
             <div className="relative max-w-2xl mx-auto">
               <div className="flex items-center justify-center gap-3">
                 <button
-                  onClick={() => goTo((active - 1 + testimonials.length) % testimonials.length)}
+                  onClick={goPrev}
                   className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
                   aria-label="Testimonial sebelumnya"
                 >
@@ -157,7 +118,7 @@ export default function WhyUsContent() {
                 </div>
 
                 <button
-                  onClick={() => goTo((active + 1) % testimonials.length)}
+                  onClick={goNext}
                   className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
                   aria-label="Testimonial berikutnya"
                 >

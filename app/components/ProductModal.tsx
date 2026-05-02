@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, MessageCircle, ShoppingBag } from "lucide-react";
 import { WHATSAPP_URL } from "../data/constants";
@@ -12,13 +12,23 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     if (!product) return;
+
+    previousFocusRef.current = document.activeElement as HTMLElement;
+    modalRef.current?.focus();
+
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      previousFocusRef.current?.focus();
+    };
   }, [product, onClose]);
 
   useEffect(() => {
@@ -50,7 +60,12 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             onClick={onClose}
           />
           <motion.div
-            className="relative bg-white rounded-lg shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
+            ref={modalRef}
+            className="relative bg-white rounded-lg shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto outline-none"
+            role="dialog"
+            aria-modal="true"
+            aria-label={product.name}
+            tabIndex={-1}
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}

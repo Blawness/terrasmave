@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import { memo } from "react";
 
 interface FadeInProps {
   children: ReactNode;
@@ -14,7 +15,7 @@ interface FadeInProps {
 
 const VIEWPORT_MARGIN = "-80px";
 
-export default function FadeIn({
+const FadeIn = memo(function FadeIn({
   children,
   delay = 0,
   duration = 0.5,
@@ -43,4 +44,6 @@ export default function FadeIn({
       {children}
     </motion.div>
   );
-}
+});
+
+export default FadeIn;
