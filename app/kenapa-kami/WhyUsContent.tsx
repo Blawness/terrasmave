@@ -2,7 +2,7 @@
 
 import FadeIn from "../components/FadeIn";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, MessageCircle } from "lucide-react";
 import { useCarousel } from "../hooks/useCarousel";
 
 const DRAG_ELASTICITY = 0.3;
@@ -138,6 +138,14 @@ export default function WhyUsContent() {
                   />
                 ))}
               </div>
+
+              <a
+                href="/testimoni"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors mt-6"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Bagikan Pengalamanmu
+              </a>
             </div>
           </div>
         </FadeIn>

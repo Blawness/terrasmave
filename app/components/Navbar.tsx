@@ -1,7 +1,7 @@
 "use client";
 
-import { Menu, X, MessageCircle, Instagram, ShoppingBag } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, MessageCircle, Instagram, ShoppingBag, Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -9,14 +9,33 @@ import { WHATSAPP_URL, WHATSAPP_DISPLAY, INSTAGRAM_URL } from "../data/constants
 
 const navLinks = [
   { label: "Varian", href: "/produk" },
+  { label: "Paket", href: "/paket" },
   { label: "Tentang", href: "/tentang" },
-  { label: "Kenapa Kami", href: "/kenapa-kami" },
+  { label: "FAQ", href: "/faq" },
   { label: "Kontak", href: "/kontak" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+    const stored = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = stored === "dark" || (!stored && prefersDark);
+    setDark(isDark);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, []);
+
+  const toggleDark = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
@@ -32,7 +51,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={`text-sm font-medium transition-colors uppercase tracking-wide relative ${
-                  pathname === link.href ? "text-primary" : "text-stone-600 hover:text-primary"
+                  pathname === link.href ? "text-primary" : "text-stone-600 dark:text-stone-400 hover:text-primary dark:hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -46,7 +65,16 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden sm:flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-3">
+            {mounted && (
+              <button
+                onClick={toggleDark}
+                aria-label="Toggle dark mode"
+                className="text-stone-500 dark:text-stone-400 hover:text-primary dark:hover:text-primary transition-colors p-1.5"
+              >
+                {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </button>
+            )}
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -75,13 +103,24 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button
-            className="sm:hidden text-stone-600"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="flex items-center gap-2 sm:hidden">
+            {mounted && (
+              <button
+                onClick={toggleDark}
+                aria-label="Toggle dark mode"
+                className="text-stone-500 dark:text-stone-400 hover:text-primary transition-colors p-1.5"
+              >
+                {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </button>
+            )}
+            <button
+              className="text-stone-600 dark:text-stone-400"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+            >
+              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {open && (
@@ -92,7 +131,9 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={`block py-2 text-sm font-medium uppercase tracking-wide ${
-                  pathname === link.href ? "text-primary" : "text-stone-600 hover:text-primary"
+                  pathname === link.href
+                    ? "text-primary"
+                    : "text-stone-600 dark:text-stone-400 hover:text-primary"
                 }`}
               >
                 {link.label}

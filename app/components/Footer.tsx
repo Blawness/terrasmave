@@ -7,8 +7,11 @@ import { WHATSAPP_URL, WHATSAPP_DISPLAY, INSTAGRAM_URL } from "../data/constants
 
 const navLinks = [
   { label: "Varian", href: "/produk" },
+  { label: "Paket & Harga", href: "/paket" },
   { label: "Tentang", href: "/tentang" },
-  { label: "Mengapa Kami", href: "/kenapa-kami" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Testimoni", href: "/testimoni" },
+  { label: "Kontak", href: "/kontak" },
 ];
 
 export default function Footer() {
