@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Products limit={4} />
+      <Products limit={3} />
       <CTA />
     </>
   );
