@@ -1,10 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  images: {
-    unoptimized: true,
-  },
+  /* output defaults to undefined = full Next.js server (SSR/SSG) */
 };
 
 export default nextConfig;
