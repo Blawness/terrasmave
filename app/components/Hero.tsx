@@ -71,7 +71,11 @@ export default function Hero() {
               >
                 <img
                   src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=600&fit=crop"
-                  alt="Es krim sandwich Terrasmave"
+                  alt="Es krim sandwich homemade Terrasmave dengan 3 scoop rasa dan topping"
+                  width={600}
+                  height={600}
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
