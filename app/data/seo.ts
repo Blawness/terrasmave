@@ -7,7 +7,7 @@ import {
   ADDRESS,
 } from "./constants";
 import { products } from "./products";
-import { faq } from "./faq";
+import { faqData } from "./faq";
 import { testimonials, aggregateRating } from "./testimonials";
 
 /** LocalBusiness — the brand. Used in the root layout. */
@@ -54,10 +54,10 @@ export const localBusinessLd = {
 export const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faq.map((item) => ({
+  mainEntity: faqData.map((item) => ({
     "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
   })),
 };
 

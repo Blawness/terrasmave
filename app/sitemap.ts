@@ -3,7 +3,16 @@ import { SITE_URL } from "./data/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const routes = ["", "/produk", "/tentang", "/kenapa-kami", "/kontak"];
+  const routes = [
+    "",
+    "/produk",
+    "/paket",
+    "/tentang",
+    "/kenapa-kami",
+    "/faq",
+    "/testimoni",
+    "/kontak",
+  ];
 
   return routes.map((route) => ({
     url: `${SITE_URL}${route}`,
