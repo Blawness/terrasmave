@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useCallback, useMemo } from "react";
 import { products } from "../data/products";
 import type { Product } from "../data/products";
@@ -128,11 +129,13 @@ export default function ProductListing() {
                       className="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all group overflow-hidden cursor-pointer"
                       onClick={() => setSelected(item)}
                     >
-                      <div className="relative overflow-hidden">
-                        <img
+                      <div className="relative aspect-square overflow-hidden">
+                        <Image
                           src={item.image}
                           alt={item.name}
-                          className="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-500"
+                          fill
+                          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                          className="object-cover group-hover:scale-110 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <a

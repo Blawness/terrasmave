@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -69,14 +70,13 @@ export default function Hero() {
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=600&fit=crop"
                   alt="Es krim sandwich homemade Terrasmave dengan 3 scoop rasa dan topping"
-                  width={600}
-                  height={600}
-                  fetchPriority="high"
-                  decoding="async"
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="(min-width: 640px) 320px, 256px"
+                  className="object-cover"
                 />
               </motion.div>
 

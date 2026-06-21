@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, MessageCircle, ShoppingBag } from "lucide-react";
@@ -79,11 +80,13 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               <X className="h-5 w-5" />
             </button>
 
-            <div className="relative">
-              <img
+            <div className="relative aspect-square rounded-t-lg overflow-hidden">
+              <Image
                 src={product.image}
                 alt={product.name}
-                className="w-full aspect-square object-cover rounded-t-lg"
+                fill
+                sizes="(min-width: 640px) 500px, 90vw"
+                className="object-cover"
               />
               {product.tag && (
                 <span className="absolute top-4 left-4 bg-gradient-to-r from-primary to-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">

@@ -4,11 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
+Package manager: **pnpm** (see `pnpm-lock.yaml`). Use `pnpm`, not `npm`.
+
 ```
-npm run dev     # dev server (localhost:3000)
-npm run build   # static export → ./out/
-npm run start   # serve build (requires build first)
-npm run lint    # next lint
+pnpm dev     # dev server (localhost:3000)
+pnpm build   # production build (.next/)
+pnpm start   # serve production build (requires build first)
+pnpm lint    # next lint
 ```
 
 No test framework configured.
@@ -17,9 +19,9 @@ No test framework configured.
 
 Next.js 16 (App Router) + TypeScript 5 + React 19, Tailwind CSS 3 + shadcn/ui (stone base), Framer Motion, Lucide React. Path alias `@/*` → project root.
 
-## Critical: Static Export
+## Rendering
 
-`next.config.ts` sets `output: "export"` with `images.unoptimized: true`. No SSR, no API routes, no runtime server components. Use plain `<img>` tags — not `next/image`. Build output is `./out/`.
+`next.config.ts` runs a full Next.js server (SSR/SSG) — `output: "export"` was removed. Pages are still prerendered as static where possible, but API routes, server components, and the image optimizer are available. Use `next/image` (not plain `<img>`); remote images come from `images.unsplash.com`, allowlisted in `next.config.ts` under `images.remotePatterns`.
 
 ## Architecture
 
@@ -28,7 +30,7 @@ Single-page marketing site (Indonesian) for a homemade organic snacks brand.
 ```
 app/
   page.tsx            — composes all sections: Navbar → Hero → Products → About → WhyUs → CTA → Footer
-  layout.tsx          — root layout with Playfair Display + Inter fonts, GA4 placeholder (commented out)
+  layout.tsx          — root layout with Playfair Display + Inter fonts, Vercel Analytics + Speed Insights (GA4 placeholder still commented out)
   globals.css         — shadcn theme vars + custom .velato-* utility classes
   components/         — one .tsx file per page section (7 total, all "use client")
   data/products.ts    — product catalog array (name, desc, price, tag, Unsplash URL)
@@ -43,7 +45,7 @@ lib/utils.ts          — cn() helper (clsx + tailwind-merge)
 - WhatsApp CTA links to `https://wa.me/6281281818892`
 - No `public/` directory — all images are external Unsplash URLs
 - To add shadcn components: `npx shadcn@latest add <component-name>`
-- Enable GA4 by uncommenting the script in `layout.tsx` and replacing `GA_MEASUREMENT_ID`
+- Analytics: Vercel Analytics + Speed Insights are wired in `layout.tsx` (auto-enabled on Vercel). GA4 placeholder remains commented out — uncomment and replace `GA_MEASUREMENT_ID` if also using GA4
 
 ## Deployment
 

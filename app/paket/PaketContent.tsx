@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { packages } from "../data/packages";
 import { WHATSAPP_URL } from "../data/constants";
 import { MessageCircle, Check, ChevronRight } from "lucide-react";
@@ -36,11 +37,13 @@ export default function PaketContent() {
                   </span>
                 )}
 
-                <div className="relative overflow-hidden">
-                  <img
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
                     src={pkg.image}
                     alt={pkg.name}
-                    className="w-full aspect-[4/3] object-cover"
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute bottom-3 left-3 text-white">

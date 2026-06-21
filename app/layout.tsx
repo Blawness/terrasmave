@@ -7,6 +7,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import { SITE_URL, SITE_NAME } from "./data/constants";
 import { localBusinessLd } from "./data/seo";
 import JsonLd from "./components/JsonLd";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -83,6 +85,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <ScrollToTop />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
