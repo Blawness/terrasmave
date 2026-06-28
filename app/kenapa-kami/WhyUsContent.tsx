@@ -41,11 +41,15 @@ export default function WhyUsContent() {
     <section className="relative py-16 sm:py-20 px-4 bg-secondary overflow-hidden">
       <div className="max-w-6xl mx-auto relative">
         <FadeIn className="text-center mb-12">
-          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
+          <p className="inline-block bg-brand-pink/30 text-brand-dark font-semibold text-sm uppercase tracking-widest mb-2 px-3 py-1 rounded-full">
             Keunggulan
           </p>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-primary mb-4">
-            MENGAPA PILIH KAMI?
+            MENGAPA PILIH{" "}
+            <span className="box-decoration-clone bg-[linear-gradient(transparent_55%,#f798ab_55%)] px-1">
+              KAMI
+            </span>
+            ?
           </h2>
         </FadeIn>
 

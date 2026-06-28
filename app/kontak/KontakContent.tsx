@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Phone, Mail, MessageCircle, Clock } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import FadeIn from "../components/FadeIn";
 import { WHATSAPP_URL, WHATSAPP_DISPLAY } from "../data/constants";
@@ -16,11 +16,6 @@ const contactInfo = [
     title: "Telepon",
     lines: [WHATSAPP_DISPLAY],
   },
-  {
-    icon: Mail,
-    title: "Email",
-    lines: ["hello@terrasmave.com"],
-  },
 ];
 
 export default function KontakContent() {
@@ -28,11 +23,14 @@ export default function KontakContent() {
     <section className="relative py-16 sm:py-20 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-12">
-          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
+          <p className="inline-block bg-brand-pink/30 text-brand-dark font-semibold text-sm uppercase tracking-widest mb-2 px-3 py-1 rounded-full">
             Hubungi Kami
           </p>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-primary mb-4">
-            KONTAK KAMI
+            KONTAK{" "}
+            <span className="box-decoration-clone bg-[linear-gradient(transparent_55%,#f798ab_55%)] px-1">
+              KAMI
+            </span>
           </h1>
           <p className="text-stone-500 max-w-lg mx-auto">
             Pesan mudah via WhatsApp atau kunjungi kami langsung. Dapur kami selalu siap melayani.
@@ -78,21 +76,22 @@ export default function KontakContent() {
           </FadeIn>
 
           <FadeIn direction="left" delay={0.2}>
-            <div className="bg-stone-200 rounded-lg overflow-hidden h-full min-h-[320px] flex items-center justify-center">
-              <div className="text-center p-8">
-                <MapPin className="h-10 w-10 text-stone-400 mx-auto mb-4" />
-                <p className="text-stone-500 text-sm">Google Maps akan ditampilkan di sini</p>
-                <p className="text-stone-400 text-xs mt-2">
-                  Jl. Swasembada Barat XIX No.16, Tanjung Priok
-                </p>
-              </div>
+            <div className="bg-stone-200 rounded-lg overflow-hidden h-full min-h-[320px]">
+              <iframe
+                title="Lokasi Terrasmave di Google Maps"
+                src="https://www.google.com/maps?q=Terrasmave,+Jl.+Swasembada+Barat+XIX+No.16,+Tanjung+Priok,+Jakarta+Utara&output=embed"
+                className="w-full h-full min-h-[320px] border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </FadeIn>
         </div>
 
         <FadeIn delay={0.3}>
-          <div className="bg-primary rounded-lg p-8 sm:p-12 text-white text-center relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
+          <div className="bg-brand-pink rounded-lg p-8 sm:p-12 text-brand-dark text-center relative overflow-hidden">
+            <div className="absolute inset-0 opacity-20">
               <motion.div
                 className="absolute top-10 left-10 w-24 h-24 bg-white rounded-full"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -108,7 +107,7 @@ export default function KontakContent() {
               <h2 className="font-display text-2xl sm:text-3xl font-bold mb-4">
                 Pesan Sekarang via WhatsApp
               </h2>
-              <p className="text-white/80 mb-8 max-w-md mx-auto">
+              <p className="text-brand-dark/80 mb-8 max-w-md mx-auto">
                 Cukup klik tombol di bawah, ceritakan varian yang kamu mau, dan pesananmu akan kami
                 siapkan dengan penuh cinta.
               </p>
@@ -116,7 +115,7 @@ export default function KontakContent() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-md hover:bg-stone-100 transition-colors text-lg shadow-lg"
+                className="inline-flex items-center gap-2 bg-brand-dark text-brand-cream font-semibold px-8 py-4 rounded-md hover:bg-brand-dark/90 transition-colors text-lg shadow-lg"
               >
                 <MessageCircle className="h-5 w-5" />
                 Chat WhatsApp

@@ -41,13 +41,13 @@ export default function AboutContent() {
               <div className="w-full max-w-md mx-auto lg:mx-0">
                 <motion.img
                   style={{ y }}
-                  src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&h=700&fit=crop"
+                  src="/products/tentang-kami.webp"
                   alt="Terrasmave - Es krim scoop homemade dari dapur kami"
                   className="rounded-lg shadow-xl"
                 />
               </div>
               <motion.div
-                className="absolute -bottom-4 -right-4 sm:right-8 bg-primary text-white p-4 rounded-lg shadow-lg"
+                className="absolute -bottom-4 -right-4 sm:right-8 bg-brand-pink text-brand-dark p-4 rounded-lg shadow-lg"
                 whileHover={{ scale: 1.05 }}
               >
                 <p className="font-display text-3xl font-bold">5+</p>
@@ -58,7 +58,7 @@ export default function AboutContent() {
 
           <div>
             <FadeIn delay={0.1}>
-              <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
+              <p className="inline-block bg-brand-pink/30 text-brand-dark font-semibold text-sm uppercase tracking-widest mb-2 px-3 py-1 rounded-full">
                 Tentang Kami
               </p>
             </FadeIn>
@@ -66,7 +66,10 @@ export default function AboutContent() {
               <h2 className="font-display text-4xl sm:text-5xl font-bold text-primary mb-6 leading-tight">
                 DARI DAPUR KAMI
                 <br />
-                UNTUK KAMU
+                UNTUK{" "}
+                <span className="box-decoration-clone bg-[linear-gradient(transparent_55%,#f798ab_55%)] px-1">
+                  KAMU
+                </span>
               </h2>
             </FadeIn>
             <FadeIn delay={0.3}>

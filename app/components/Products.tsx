@@ -21,11 +21,14 @@ export default function Products({ limit, onProductClick }: ProductsProps) {
     <section className="relative py-16 sm:py-20 px-4 bg-secondary velato-pattern-dots">
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-12">
-          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
+          <p className="inline-block bg-brand-pink/30 text-brand-dark font-semibold text-sm uppercase tracking-widest mb-2 px-3 py-1 rounded-full">
             Menu Spesial
           </p>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-primary mb-4">
-            PILIH VARIANMU
+            PILIH{" "}
+            <span className="box-decoration-clone bg-[linear-gradient(transparent_55%,#f798ab_55%)] px-1">
+              VARIANMU
+            </span>
           </h2>
           <p className="text-stone-500 max-w-lg mx-auto">
             Setiap varian lengkap dengan topping pilihan, choco sauce & bread. Dibuat fresh dengan

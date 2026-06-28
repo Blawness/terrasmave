@@ -14,11 +14,14 @@ export default function FAQContent() {
     <section className="relative py-16 sm:py-20 px-4 bg-background">
       <div className="max-w-3xl mx-auto">
         <FadeIn className="text-center mb-12">
-          <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
+          <p className="inline-block bg-brand-pink/30 text-brand-dark font-semibold text-sm uppercase tracking-widest mb-2 px-3 py-1 rounded-full">
             Informasi
           </p>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-primary mb-4">
-            PERTANYAAN UMUM
+            PERTANYAAN{" "}
+            <span className="box-decoration-clone bg-[linear-gradient(transparent_55%,#f798ab_55%)] px-1">
+              UMUM
+            </span>
           </h1>
           <p className="text-stone-500 max-w-lg mx-auto">
             Temukan jawaban untuk pertanyaan yang sering diajukan tentang produk dan pemesanan.

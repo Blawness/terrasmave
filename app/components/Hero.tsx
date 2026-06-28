@@ -73,7 +73,7 @@ export default function Hero() {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=600&fit=crop"
+                  src="/products/hero.webp"
                   alt="Es krim scoop homemade Terrasmave dengan 3 scoop rasa dan topping"
                   fill
                   priority

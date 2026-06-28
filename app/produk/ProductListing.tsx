@@ -18,11 +18,14 @@ export default function ProductListing() {
       <section className="relative py-16 sm:py-20 px-4 bg-secondary velato-pattern-dots">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
+            <p className="inline-block bg-brand-pink/30 text-brand-dark font-semibold text-sm uppercase tracking-widest mb-2 px-3 py-1 rounded-full">
               Menu Spesial
             </p>
             <h1 className="font-display text-4xl sm:text-5xl font-bold text-primary mb-4">
-              PILIH VARIANMU
+              PILIH{" "}
+              <span className="box-decoration-clone bg-[linear-gradient(transparent_55%,#f798ab_55%)] px-1">
+                VARIANMU
+              </span>
             </h1>
             <p className="text-stone-500 max-w-lg mx-auto">
               Dua pilihan ukuran, lengkap dengan topping pilihan, choco sauce & bread. Semua dibuat
