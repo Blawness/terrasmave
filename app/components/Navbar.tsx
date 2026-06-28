@@ -1,7 +1,7 @@
 "use client";
 
-import { Menu, X, MessageCircle, Instagram, ShoppingBag, Sun, Moon } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Menu, X, MessageCircle, Instagram, ShoppingBag } from "lucide-react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -16,25 +16,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [dark, setDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = stored === "dark" || (!stored && prefersDark);
-    setDark(isDark);
-    document.documentElement.classList.toggle("dark", isDark);
-  }, []);
-
-  const toggleDark = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
-  };
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
@@ -67,15 +49,6 @@ export default function Navbar() {
           </div>
 
           <div className="hidden sm:flex items-center gap-3">
-            {mounted && (
-              <button
-                onClick={toggleDark}
-                aria-label="Toggle dark mode"
-                className="text-stone-500 dark:text-stone-400 hover:text-primary dark:hover:text-primary transition-colors p-1.5"
-              >
-                {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </button>
-            )}
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -105,15 +78,6 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2 sm:hidden">
-            {mounted && (
-              <button
-                onClick={toggleDark}
-                aria-label="Toggle dark mode"
-                className="text-stone-500 dark:text-stone-400 hover:text-primary transition-colors p-1.5"
-              >
-                {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </button>
-            )}
             <button
               className="text-stone-600 dark:text-stone-400"
               onClick={() => setOpen(!open)}
