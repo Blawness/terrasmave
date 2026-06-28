@@ -10,6 +10,12 @@ const config: Config = {
         sans: ["var(--font-body)", "sans-serif"],
       },
       colors: {
+        brand: {
+          cream: "#f8f3f0",
+          dark: "#3e170b",
+          brown: "#906952",
+          pink: "#f798ab",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

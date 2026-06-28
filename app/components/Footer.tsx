@@ -7,7 +7,6 @@ import { WHATSAPP_URL, WHATSAPP_DISPLAY, INSTAGRAM_URL } from "../data/constants
 
 const navLinks = [
   { label: "Varian", href: "/produk" },
-  { label: "Paket & Harga", href: "/paket" },
   { label: "Tentang", href: "/tentang" },
   { label: "FAQ", href: "/faq" },
   { label: "Testimoni", href: "/testimoni" },
@@ -23,8 +22,8 @@ export default function Footer() {
             <div className="sm:col-span-2 lg:col-span-1">
               <h3 className="font-display text-2xl font-bold mb-4">Terrasmave</h3>
               <p className="text-white/70 text-sm leading-relaxed mb-6">
-                Es krim sandwich homemade berbahan organik, dibuat dengan cinta dari dapur kami
-                untuk keluarga Indonesia.
+                Es krim scoop homemade berbahan organik, dibuat dengan cinta dari dapur kami untuk
+                keluarga Indonesia.
               </p>
               <div className="flex gap-3">
                 <a

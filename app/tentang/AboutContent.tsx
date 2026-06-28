@@ -9,17 +9,17 @@ const highlights = [
   {
     icon: Leaf,
     title: "100% Bahan Organik",
-    desc: "Cream, cokelat, dan cookies dari bahan alami pilihan",
+    desc: "Es krim, cokelat, dan topping dari bahan alami pilihan",
   },
   {
     icon: Heart,
     title: "Handmade Fresh",
-    desc: "Setiap sandwich dibuat manual dengan penuh perhatian",
+    desc: "Setiap porsi dibuat manual dengan penuh perhatian",
   },
   {
     icon: Award,
-    title: "6 Varian Rasa",
-    desc: "Dari cokelat klasik hingga matcha premium",
+    title: "3 Pilihan Rasa",
+    desc: "Vanilla, Chocolate, dan Strawberry",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function AboutContent() {
                 <motion.img
                   style={{ y }}
                   src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&h=700&fit=crop"
-                  alt="Terrasmave - Es krim sandwich homemade dari dapur kami"
+                  alt="Terrasmave - Es krim scoop homemade dari dapur kami"
                   className="rounded-lg shadow-xl"
                 />
               </div>
@@ -71,28 +71,35 @@ export default function AboutContent() {
             </FadeIn>
             <FadeIn delay={0.3}>
               <p className="text-stone-600 leading-relaxed mb-8">
-                Terrasmave menghadirkan es krim sandwich homemade yang dibuat dengan bahan organik
-                pilihan. Setiap sandwich dibuat dengan tangan — dari adonan cookies hingga isian es
-                krim yang creamy. Tanpa pengawet, tanpa pewarna buatan, murni rasa yang lezat.
+                Terrasmave menghadirkan es krim scoop homemade yang dibuat dengan bahan organik
+                pilihan. Setiap porsi diracik dengan tangan — dari scoop es krim yang creamy hingga
+                topping renyah dan choco sauce. Tanpa pengawet, tanpa pewarna buatan, murni rasa
+                yang lezat.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.4}>
               <div className="space-y-4 mb-8">
                 <div className="flex gap-3">
-                  <span className="text-primary font-semibold text-sm">Single Pack</span>
+                  <span className="text-primary font-semibold text-sm whitespace-nowrap">
+                    2 Scoop
+                  </span>
                   <span className="text-stone-500 text-sm">
-                    — Satu es krim sandwich, cocok untuk ngemil sendiri
+                    — Rp 7.000, 2 scoop + 2 topping + choco sauce & bread
                   </span>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-primary font-semibold text-sm">Family Box</span>
+                  <span className="text-primary font-semibold text-sm whitespace-nowrap">
+                    3 Scoop
+                  </span>
                   <span className="text-stone-500 text-sm">
-                    — Isi 6 pcs, sempurna untuk dinikmati bersama keluarga
+                    — Rp 10.000, 3 scoop + 3 topping + choco sauce & bread
                   </span>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-primary font-semibold text-sm">Custom Order</span>
+                  <span className="text-primary font-semibold text-sm whitespace-nowrap">
+                    Custom Order
+                  </span>
                   <span className="text-stone-500 text-sm">
                     — Pesan untuk acara spesial, kami buatkan spesial
                   </span>

@@ -9,7 +9,6 @@ import { WHATSAPP_URL, WHATSAPP_DISPLAY, INSTAGRAM_URL } from "../data/constants
 
 const navLinks = [
   { label: "Varian", href: "/produk" },
-  { label: "Paket", href: "/paket" },
   { label: "Tentang", href: "/tentang" },
   { label: "FAQ", href: "/faq" },
   { label: "Kontak", href: "/kontak" },
@@ -51,7 +50,9 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={`text-sm font-medium transition-colors uppercase tracking-wide relative ${
-                  pathname === link.href ? "text-primary" : "text-stone-600 dark:text-stone-400 hover:text-primary dark:hover:text-primary"
+                  pathname === link.href
+                    ? "text-primary"
+                    : "text-stone-600 dark:text-stone-400 hover:text-primary dark:hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -79,7 +80,7 @@ export default function Navbar() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-primary hover:text-red-700 transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-primary hover:text-brand-brown transition-colors"
             >
               <MessageCircle className="h-4 w-4" />
               <span className="hidden md:inline">{WHATSAPP_DISPLAY}</span>
@@ -96,7 +97,7 @@ export default function Navbar() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-brand-pink hover:text-brand-dark transition-colors"
             >
               <ShoppingBag className="h-4 w-4" />
               Pesan

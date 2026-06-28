@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     template: "%s – Terrasmave",
   },
   description:
-    "Es krim sandwich homemade Terrasmave: 3 scoop rasa pilihan, topping custom, diapit roti. Dibuat fresh dari bahan organik. Pesan via WhatsApp – Tanjung Priok, Jakarta Utara.",
+    "Es krim scoop homemade Terrasmave: pilih 2 atau 3 scoop rasa, topping custom, choco sauce & bread. Mulai Rp 7.000. Dibuat fresh dari bahan organik. Pesan via WhatsApp – Tanjung Priok, Jakarta Utara.",
   keywords: [
-    "es krim sandwich",
-    "es krim roti",
+    "es krim scoop",
     "es krim homemade",
     "es krim organik",
     "es krim 3 rasa",
     "es krim topping",
+    "es krim murah Jakarta",
     "camilan organik Jakarta",
     "Terrasmave",
   ],
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#9f1239",
+  themeColor: "#3e170b",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

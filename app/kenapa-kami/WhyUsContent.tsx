@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     name: "Kak Dian",
-    text: "Matchanya authentic, cookies-nya juga renyah. Beda banget sama yang di supermarket.",
+    text: "Strawberry-nya seger, toppingnya juga renyah. Beda banget sama yang di supermarket.",
     loc: "Sunter",
   },
   {

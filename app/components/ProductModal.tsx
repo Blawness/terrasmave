@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, MessageCircle, ShoppingBag } from "lucide-react";
 import { WHATSAPP_URL } from "../data/constants";
+import { flavors, toppings } from "../data/products";
 import type { Product } from "../data/products";
 
 interface ProductModalProps {
@@ -89,7 +90,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 className="object-cover"
               />
               {product.tag && (
-                <span className="absolute top-4 left-4 bg-gradient-to-r from-primary to-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                <span className="absolute top-4 left-4 bg-gradient-to-r from-primary to-brand-brown text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
                   {product.tag}
                 </span>
               )}
@@ -103,14 +104,47 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
               <div className="flex items-center gap-4 mb-6">
                 <span className="text-2xl font-bold text-primary">{product.price}</span>
-                <span className="text-stone-400 text-sm">/ pcs</span>
+                <span className="text-stone-400 text-sm">/ porsi</span>
+              </div>
+
+              <div className="space-y-3 mb-6">
+                <div>
+                  <p className="text-brand-brown font-semibold text-xs uppercase tracking-wider mb-2">
+                    Pilihan Rasa ({product.scoops} scoop)
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {flavors.map((flavor) => (
+                      <span
+                        key={flavor}
+                        className="bg-secondary text-brand-dark text-sm font-medium px-3 py-1 rounded-full"
+                      >
+                        {flavor}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-brand-brown font-semibold text-xs uppercase tracking-wider mb-2">
+                    Pilihan Topping ({product.toppings} topping)
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {toppings.map((topping) => (
+                      <span
+                        key={topping}
+                        className="bg-secondary text-brand-dark text-sm font-medium px-3 py-1 rounded-full"
+                      >
+                        {topping}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <a
                 href={`${WHATSAPP_URL}?text=Halo, saya mau pesan ${encodeURIComponent(product.name)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 transition-colors text-lg shadow-lg"
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-md hover:bg-brand-pink hover:text-brand-dark transition-colors text-lg shadow-lg"
               >
                 <ShoppingBag className="h-5 w-5" />
                 Pesan via WhatsApp

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { products } from "../data/products";
+import { products, flavors, toppings } from "../data/products";
 import type { Product } from "../data/products";
 import { WHATSAPP_URL } from "../data/constants";
 import { MessageCircle } from "lucide-react";
@@ -22,17 +22,18 @@ export default function Products({ limit, onProductClick }: ProductsProps) {
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-12">
           <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
-            Varian Rasa
+            Menu Spesial
           </p>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-primary mb-4">
-            PILIH RASA FAVORITMU
+            PILIH VARIANMU
           </h2>
           <p className="text-stone-500 max-w-lg mx-auto">
-            Semua varian dibuat fresh dengan bahan organik pilihan. Creamy, lembut, dan penuh cinta.
+            Setiap varian lengkap dengan topping pilihan, choco sauce & bread. Dibuat fresh dengan
+            bahan organik pilihan.
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {displayedProducts.map((item, index) => (
             <FadeIn key={item.id} delay={index * 0.1}>
               <motion.div
@@ -44,9 +45,9 @@ export default function Products({ limit, onProductClick }: ProductsProps) {
                 <div className="relative aspect-square overflow-hidden">
                   <Image
                     src={item.image}
-                    alt={`${item.name} — es krim sandwich homemade Terrasmave`}
+                    alt={`${item.name} — es krim scoop homemade Terrasmave`}
                     fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                    sizes="(min-width: 640px) 50vw, 100vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -63,22 +64,56 @@ export default function Products({ limit, onProductClick }: ProductsProps) {
                   {item.tag && (
                     <motion.span
                       whileHover={{ scale: 1.1, rotate: 3 }}
-                      className="absolute top-3 left-3 bg-gradient-to-r from-primary to-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md"
+                      className="absolute top-3 left-3 bg-gradient-to-r from-primary to-brand-brown text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md"
                     >
                       {item.tag}
                     </motion.span>
                   )}
                 </div>
-                <div className="p-4 text-center">
-                  <h3 className="font-semibold text-stone-800 text-sm sm:text-base mb-1">
-                    {item.name}
-                  </h3>
-                  <p className="text-stone-400 text-xs">{item.desc}</p>
+                <div className="p-5 text-center">
+                  <h3 className="font-display font-bold text-primary text-xl mb-1">{item.name}</h3>
+                  <p className="text-stone-500 text-sm mb-3">{item.desc}</p>
+                  <p className="text-2xl font-bold text-primary">{item.price}</p>
                 </div>
               </motion.div>
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={0.3}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mt-8">
+            <div className="bg-brand-pink/30 rounded-lg p-5 text-center">
+              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
+                Pilihan Rasa
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {flavors.map((flavor) => (
+                  <span
+                    key={flavor}
+                    className="bg-white text-brand-dark text-sm font-medium px-3 py-1.5 rounded-full shadow-sm"
+                  >
+                    {flavor}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="bg-brand-pink/30 rounded-lg p-5 text-center">
+              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
+                Pilihan Topping
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {toppings.map((topping) => (
+                  <span
+                    key={topping}
+                    className="bg-white text-brand-dark text-sm font-medium px-3 py-1.5 rounded-full shadow-sm"
+                  >
+                    {topping}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </FadeIn>
 
         {limit && (
           <FadeIn delay={0.4}>
@@ -87,7 +122,7 @@ export default function Products({ limit, onProductClick }: ProductsProps) {
                 href="/produk"
                 className="inline-flex items-center gap-2 border-2 border-primary text-primary font-semibold px-8 py-3 rounded-md hover:bg-primary hover:text-white transition-colors"
               >
-                Lihat Semua Varian
+                Lihat Detail Varian
                 <span>→</span>
               </Link>
             </div>

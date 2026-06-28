@@ -8,8 +8,8 @@ import { WHATSAPP_URL, INSTAGRAM_URL } from "../data/constants";
 export default function CTA() {
   return (
     <>
-      <section className="relative py-16 sm:py-20 px-4 bg-primary text-white text-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
+      <section className="relative py-16 sm:py-20 px-4 bg-brand-pink text-brand-dark text-center overflow-hidden">
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
           <motion.div
             className="absolute top-10 left-10 w-24 h-24 bg-white rounded-full"
             animate={{ scale: [1, 1.2, 1] }}
@@ -33,10 +33,10 @@ export default function CTA() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="mb-3 text-white/80 text-lg">
+            <p className="mb-3 text-brand-dark/80 text-lg">
               Hubungi kami langsung via WhatsApp atau ikuti kami di Instagram untuk update terbaru
             </p>
-            <p className="mb-8 text-white/60 text-sm">
+            <p className="mb-8 text-brand-dark/60 text-sm">
               Order sebelum jam 3 sore untuk pengiriman hari ini
             </p>
           </FadeIn>
@@ -46,7 +46,7 @@ export default function CTA() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-md hover:bg-stone-100 transition-colors text-lg shadow-lg"
+                className="inline-flex items-center gap-2 bg-brand-dark text-brand-cream font-semibold px-8 py-4 rounded-md hover:bg-brand-dark/90 transition-colors text-lg shadow-lg"
               >
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
@@ -55,7 +55,7 @@ export default function CTA() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-md hover:bg-white/10 transition-colors text-lg"
+                className="inline-flex items-center gap-2 border-2 border-brand-dark text-brand-dark font-semibold px-8 py-4 rounded-md hover:bg-brand-dark/10 transition-colors text-lg"
               >
                 <Instagram className="h-5 w-5" />
                 Instagram

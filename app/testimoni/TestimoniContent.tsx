@@ -26,7 +26,7 @@ export default function TestimoniContent() {
             TESTIMONI
           </h1>
           <p className="text-stone-500 max-w-lg mx-auto">
-            Kami senang mendengar pengalaman kamu menikmati es krim sandwich Terrasmave.
+            Kami senang mendengar pengalaman kamu menikmati es krim scoop Terrasmave.
           </p>
         </FadeIn>
 
@@ -34,9 +34,7 @@ export default function TestimoniContent() {
           <div className="bg-white rounded-xl border border-stone-200 shadow-sm p-6 sm:p-8">
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-semibold text-stone-700 mb-2">
-                  Nama Kamu
-                </label>
+                <label className="block text-sm font-semibold text-stone-700 mb-2">Nama Kamu</label>
                 <input
                   type="text"
                   placeholder="Masukkan namamu (opsional)"
@@ -47,9 +45,7 @@ export default function TestimoniContent() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-stone-700 mb-2">
-                  Rating
-                </label>
+                <label className="block text-sm font-semibold text-stone-700 mb-2">Rating</label>
                 <div className="flex gap-1.5">
                   {ratings.map((star) => (
                     <button
@@ -60,9 +56,7 @@ export default function TestimoniContent() {
                     >
                       <Star
                         className={`h-7 w-7 ${
-                          star <= rating
-                            ? "text-amber-400 fill-amber-400"
-                            : "text-stone-300"
+                          star <= rating ? "text-amber-400 fill-amber-400" : "text-stone-300"
                         } transition-colors`}
                       />
                     </button>
@@ -75,7 +69,7 @@ export default function TestimoniContent() {
                   Pesan Testimoni
                 </label>
                 <textarea
-                  placeholder="Ceritakan pengalamanmu menikmati es krim sandwich Terrasmave..."
+                  placeholder="Ceritakan pengalamanmu menikmati es krim scoop Terrasmave..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={5}
@@ -89,7 +83,7 @@ export default function TestimoniContent() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 bg-primary text-white font-semibold py-3.5 rounded-lg hover:bg-red-700 transition-colors w-full shadow-lg shadow-primary/20"
+                className="flex items-center justify-center gap-2 bg-primary text-white font-semibold py-3.5 rounded-lg hover:bg-brand-pink hover:text-brand-dark transition-colors w-full shadow-lg shadow-primary/20"
               >
                 <MessageCircle className="h-5 w-5" />
                 Kirim Testimoni via WhatsApp

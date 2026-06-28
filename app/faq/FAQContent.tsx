@@ -75,7 +75,7 @@ export default function FAQContent() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-brand-pink hover:text-brand-dark transition-colors"
             >
               <MessageCircle className="h-4 w-4" />
               Tanya via WhatsApp

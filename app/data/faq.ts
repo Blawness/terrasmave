@@ -2,12 +2,12 @@ export const faqData = [
   {
     question: "Apa itu Terrasmave?",
     answer:
-      "Terrasmave adalah brand homemade ice cream sandwich yang dibuat dari bahan-bahan organik pilihan, tanpa pengawet dan pewarna buatan. Setiap varian dibuat fresh setiap hari dengan cinta.",
+      "Terrasmave adalah brand homemade es krim scoop yang dibuat dari bahan-bahan organik pilihan, tanpa pengawet dan pewarna buatan. Setiap porsi dibuat fresh setiap hari dengan cinta.",
   },
   {
-    question: "Apa saja varian rasa yang tersedia?",
+    question: "Apa saja varian dan rasa yang tersedia?",
     answer:
-      "Kami memiliki 6 varian rasa: Cokelat (Best Seller), Vanilla (Favorit), Strawberry, Matcha (Premium), Red Velvet, dan Cookies & Cream (New). Semua varian dibanderol dengan harga Rp 15.000 per pcs.",
+      "Ada 2 varian: 2 Scoop (Rp 7.000) dengan 2 scoop + 2 topping, dan 3 Scoop (Rp 10.000) dengan 3 scoop + 3 topping. Keduanya sudah termasuk choco sauce + bread. Pilihan rasa: Vanilla, Chocolate, dan Strawberry. Pilihan topping: Oreo, Choco Crunch, Strawberry Crunch, dan Jelly.",
   },
   {
     question: "Apakah produk Terrasmave halal?",
@@ -22,7 +22,7 @@ export const faqData = [
   {
     question: "Berapa lama proses pembuatan?",
     answer:
-      "Setiap pesanan dibuat fresh setelah dipesan. Estimasi waktu pembuatan adalah 1-2 jam. Untuk pemesanan dalam jumlah besar (paket pesta/katering), disarankan memesan H-1.",
+      "Setiap pesanan dibuat fresh setelah dipesan. Estimasi waktu pembuatan adalah 1-2 jam. Untuk pemesanan dalam jumlah besar, disarankan memesan H-1.",
   },
   {
     question: "Apakah bisa delivery?",
@@ -30,19 +30,19 @@ export const faqData = [
       "Ya, kami melayani pengiriman untuk area Jakarta dan sekitarnya. Biaya pengiriman tergantung jarak. Untuk area Tanjung Priok dan sekitarnya, pengiriman GRATIS minimal pembelian Rp 50.000.",
   },
   {
-    question: "Bagaimana cara menyimpan es krim sandwich?",
+    question: "Bagaimana cara menikmati es krim Terrasmave?",
     answer:
-      "Simpan di freezer dengan suhu -18°C atau lebih dingin. Produk kami tahan hingga 2 minggu jika disimpan di freezer. Keluarkan 2-3 menit sebelum disantap untuk tekstur terbaik.",
+      "Es krim scoop kami paling nikmat disantap langsung saat masih fresh. Untuk hasil terbaik, nikmati segera setelah pesanan diterima selagi scoop dan toppingnya masih dingin dan renyah.",
   },
   {
-    question: "Apakah tersedia paket bundling?",
+    question: "Apakah bisa pesan dalam jumlah banyak?",
     answer:
-      "Ya! Kami menawarkan Paket Hemat (6 pcs), Paket Keluarga (12 pcs), Paket Pesta (24 pcs), dan Paket Katering (50 pcs). Setiap paket memberikan harga khusus yang lebih hemat. Cek halaman Paket & Harga untuk detailnya.",
+      "Bisa! Kami melayani pesanan dalam jumlah banyak untuk acara, arisan, atau kantor. Hubungi kami via WhatsApp di +62 812-8181-8892 untuk info ketersediaan dan estimasi waktu.",
   },
   {
-    question: "Bisa request rasa tertentu untuk 1 paket?",
+    question: "Bisa request rasa dan topping sesuai keinginan?",
     answer:
-      "Bisa! Untuk paket, kamu bisa mix and match varian rasa sesuai keinginan. Tinggal sebutkan saat memesan via WhatsApp ya.",
+      "Bisa! Pilih rasa scoop (Vanilla, Chocolate, Strawberry) dan topping (Oreo, Choco Crunch, Strawberry Crunch, Jelly) sesuai selera, sesuai jumlah scoop dan topping pada varian yang kamu pilih. Tinggal sebutkan saat memesan via WhatsApp ya.",
   },
   {
     question: "Apakah ada minimal order?",

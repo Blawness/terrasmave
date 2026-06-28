@@ -4,7 +4,7 @@ import JsonLd from "../components/JsonLd";
 import { breadcrumbLd } from "../data/seo";
 
 const description =
-  "Bagikan pengalaman kamu menikmati es krim sandwich homemade Terrasmave. Kirim testimoni via WhatsApp sekarang!";
+  "Bagikan pengalaman kamu menikmati es krim scoop homemade Terrasmave. Kirim testimoni via WhatsApp sekarang!";
 
 export const metadata: Metadata = {
   title: "Testimoni",

@@ -4,7 +4,7 @@ export const testimonials = [
   {
     name: "Rina W.",
     rating: 5,
-    text: "Es krim sandwich-nya enak banget! Bisa pilih 3 rasa sekaligus dan toppingnya melimpah. Rotinya fresh.",
+    text: "Es krim scoop-nya enak banget! Bisa pilih 3 rasa sekaligus dan toppingnya melimpah. Choco sauce-nya juara.",
   },
   {
     name: "Dimas A.",
@@ -14,7 +14,7 @@ export const testimonials = [
   {
     name: "Putri L.",
     rating: 4,
-    text: "Rasa organiknya kerasa, tidak terlalu manis. Favoritku kombinasi matcha, cokelat, dan vanilla.",
+    text: "Rasa organiknya kerasa, tidak terlalu manis. Favoritku kombinasi chocolate, strawberry, dan vanilla.",
   },
 ] as const;
 

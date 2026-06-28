@@ -4,7 +4,7 @@ import JsonLd from "../components/JsonLd";
 import { breadcrumbLd } from "../data/seo";
 
 const description =
-  "Es krim sandwich tanpa pengawet, fresh setiap hari, 100% bahan organik. Pesan mudah via WhatsApp — dapur kami selalu siap.";
+  "Es krim scoop tanpa pengawet, fresh setiap hari, 100% bahan organik. Pesan mudah via WhatsApp — dapur kami selalu siap.";
 
 export const metadata: Metadata = {
   title: "Kenapa Kami",

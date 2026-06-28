@@ -1,11 +1,4 @@
-import {
-  SITE_URL,
-  SITE_NAME,
-  EMAIL,
-  WHATSAPP_NUMBER,
-  INSTAGRAM_URL,
-  ADDRESS,
-} from "./constants";
+import { SITE_URL, SITE_NAME, EMAIL, WHATSAPP_NUMBER, INSTAGRAM_URL, ADDRESS } from "./constants";
 import { products } from "./products";
 import { faqData } from "./faq";
 import { testimonials, aggregateRating } from "./testimonials";
@@ -17,7 +10,7 @@ export const localBusinessLd = {
   "@id": `${SITE_URL}/#business`,
   name: SITE_NAME,
   description:
-    "Es krim sandwich homemade: 3 scoop rasa pilihan, topping custom, diapit roti — dibuat fresh dari bahan organik.",
+    "Es krim scoop homemade: pilih 2 atau 3 scoop rasa, topping custom, choco sauce & bread — dibuat fresh dari bahan organik.",
   url: SITE_URL,
   email: EMAIL,
   telephone: `+${WHATSAPP_NUMBER}`,

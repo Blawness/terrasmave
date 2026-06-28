@@ -4,40 +4,46 @@
 
 @layer base {
   :root {
-    --background: 35 40% 97%;
-    --foreground: 0 70% 12%;
+    /* Brand kit (raw hex) */
+    --color-bg: #f8f3f0; /* cream */
+    --color-dark: #3e170b; /* dark chocolate */
+    --color-brown: #906952; /* brown */
+    --color-pink: #f798ab; /* soft pink */
+
+    --background: 23 36% 96%; /* #f8f3f0 cream */
+    --foreground: 14 70% 14%; /* #3e170b dark chocolate */
     --card: 0 0% 100%;
-    --card-foreground: 0 70% 12%;
-    --primary: 0 85% 48%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 35 30% 94%;
-    --secondary-foreground: 0 70% 12%;
-    --muted: 35 15% 92%;
-    --muted-foreground: 0 10% 50%;
-    --accent: 0 85% 48%;
-    --accent-foreground: 0 0% 100%;
-    --border: 35 15% 88%;
-    --input: 35 15% 88%;
-    --ring: 0 85% 48%;
+    --card-foreground: 14 70% 14%;
+    --primary: 14 70% 14%; /* #3e170b */
+    --primary-foreground: 23 36% 96%; /* cream on dark */
+    --secondary: 22 27% 93%; /* light brown tint */
+    --secondary-foreground: 14 70% 14%;
+    --muted: 22 20% 92%;
+    --muted-foreground: 22 27% 44%; /* #906952 brown */
+    --accent: 348 86% 78%; /* #f798ab pink */
+    --accent-foreground: 14 70% 14%; /* dark on pink */
+    --border: 22 27% 85%; /* brownish border */
+    --input: 22 27% 85%;
+    --ring: 348 86% 78%; /* pink focus ring */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 35 20% 95%;
-    --card: 0 0% 12%;
-    --card-foreground: 35 20% 95%;
-    --primary: 0 85% 55%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 35 20% 95%;
-    --muted: 0 0% 16%;
-    --muted-foreground: 35 10% 60%;
-    --accent: 0 85% 55%;
-    --accent-foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 85% 55%;
+    --background: 14 45% 9%; /* deep chocolate */
+    --foreground: 23 36% 96%; /* cream */
+    --card: 14 40% 12%;
+    --card-foreground: 23 36% 96%;
+    --primary: 348 86% 78%; /* #f798ab pink */
+    --primary-foreground: 14 70% 14%; /* dark on pink */
+    --secondary: 22 20% 18%;
+    --secondary-foreground: 23 36% 96%;
+    --muted: 22 20% 18%;
+    --muted-foreground: 22 22% 64%; /* lighter brown */
+    --accent: 348 86% 78%; /* #f798ab pink */
+    --accent-foreground: 14 70% 14%;
+    --border: 22 20% 22%;
+    --input: 22 20% 22%;
+    --ring: 348 86% 78%;
   }
 }
 
@@ -78,7 +84,7 @@
   }
 
   .velato-banner {
-    @apply bg-primary text-white font-bold text-sm uppercase tracking-wider;
+    @apply bg-primary text-primary-foreground font-bold text-sm uppercase tracking-wider;
   }
 
   .velato-card {
@@ -90,11 +96,11 @@
   }
 
   .velato-btn-primary {
-    @apply bg-primary text-white hover:bg-red-700;
+    @apply bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground;
   }
 
   .velato-btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground;
   }
 
   .velato-pattern-dots {
@@ -107,7 +113,7 @@
       135deg,
       hsl(var(--primary) / 0.05) 0%,
       hsl(var(--accent) / 0.08) 50%,
-      hsl(35 40% 97%) 100%
+      hsl(23 36% 96%) 100%
     );
   }
 }

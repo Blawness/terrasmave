@@ -6,28 +6,24 @@ export const contentType = "image/png";
 
 export default function OpengraphImage() {
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%)",
-          color: "#3d3424",
-          fontFamily: "serif",
-        }}
-      >
-        <div style={{ fontSize: 88, fontWeight: 700, letterSpacing: "-0.02em" }}>
-          Terrasmave
-        </div>
-        <div style={{ fontSize: 36, marginTop: 16, color: "#6b5d45" }}>
-          Camilan Homemade Berbahan Organik
-        </div>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "linear-gradient(135deg, #f8f3f0 0%, #f0e3da 100%)",
+        color: "#3e170b",
+        fontFamily: "serif",
+      }}
+    >
+      <div style={{ fontSize: 88, fontWeight: 700, letterSpacing: "-0.02em" }}>Terrasmave</div>
+      <div style={{ fontSize: 36, marginTop: 16, color: "#906952" }}>
+        Camilan Homemade Berbahan Organik
       </div>
-    ),
-    { ...size },
+    </div>,
+    { ...size }
   );
 }

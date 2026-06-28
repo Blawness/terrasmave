@@ -4,7 +4,7 @@ import JsonLd from "../components/JsonLd";
 import { productListLd, breadcrumbLd } from "../data/seo";
 
 const description =
-  "Es krim sandwich homemade: pilih 3 scoop rasa, tambah topping favoritmu, diapit roti. 6 varian — Cokelat, Vanilla, Strawberry, Matcha, Red Velvet, Cookies & Cream.";
+  "Es krim scoop homemade: pilih varian 2 Scoop (Rp7.000) atau 3 Scoop (Rp10.000), lengkap dengan topping pilihan, choco sauce & bread. Rasa Vanilla, Chocolate, Strawberry.";
 
 export const metadata: Metadata = {
   title: "Produk",

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { WHATSAPP_URL } from "../data/constants";
 
 const BANNER_TEXT =
-  "✦ Es Krim Sandwich Homemade ✦ Dibuat Fresh Setiap Hari ✦ 100% Bahan Organik ✦ Pesan via WhatsApp";
+  "✦ Es Krim Scoop Homemade ✦ Dibuat Fresh Setiap Hari ✦ 100% Bahan Organik ✦ Pesan via WhatsApp";
 const BANNER_REPEAT = 10;
 
 export default function Hero() {
@@ -24,22 +24,24 @@ export default function Hero() {
             <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">
               Homemade · Organik · Penuh Cinta
             </p>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary leading-none tracking-tight mb-6">
-              ES KRIM
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-none tracking-tight mb-6">
+              <span className="text-brand-dark">ES KRIM</span>
               <br />
-              SANDWICH
+              <span className="text-brand-brown">SCOOP</span>
               <br />
-              HOMEMADE
+              <span className="text-brand-dark box-decoration-clone bg-[linear-gradient(transparent_55%,#f798ab_55%)] px-1">
+                TIGA RASA
+              </span>
             </h1>
             <p className="text-stone-500 text-lg mb-8 max-w-md mx-auto lg:mx-0">
-              Es krim sandwich homemade dengan bahan organik pilihan. Dibuat fresh setiap hari,
-              tanpa pengawet dan pewarna buatan.
+              Es krim scoop homemade dengan bahan organik pilihan. Pilih 2 atau 3 scoop, lengkap
+              dengan topping, choco sauce & bread. Dibuat fresh setiap hari.
             </p>
             <div className="flex gap-3 justify-center lg:justify-start flex-wrap">
               <Button
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-red-700 text-white px-8 shadow-lg shadow-red-500/25"
+                className="bg-primary hover:bg-brand-pink hover:text-brand-dark text-white px-8 shadow-lg shadow-brand-brown/25"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   Pesan Sekarang
@@ -64,7 +66,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-110" />
+              <div className="absolute inset-0 rounded-full bg-brand-pink/40 blur-3xl scale-110" />
               <motion.div
                 className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white"
                 animate={{ y: [0, -5, 0] }}
@@ -72,7 +74,7 @@ export default function Hero() {
               >
                 <Image
                   src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=600&fit=crop"
-                  alt="Es krim sandwich homemade Terrasmave dengan 3 scoop rasa dan topping"
+                  alt="Es krim scoop homemade Terrasmave dengan 3 scoop rasa dan topping"
                   fill
                   priority
                   sizes="(min-width: 640px) 320px, 256px"
@@ -99,7 +101,7 @@ export default function Hero() {
               </motion.div>
 
               <motion.div
-                className="absolute top-8 -left-8 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center shadow"
+                className="absolute top-8 -left-8 w-12 h-12 bg-brand-pink/25 rounded-full flex items-center justify-center shadow"
                 animate={{ y: [0, 6, 0], rotate: [0, -15, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
               >
@@ -118,7 +120,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="overflow-hidden bg-primary py-3">
+      <div className="overflow-hidden bg-brand-pink py-3">
         <motion.div
           className="flex whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }}
@@ -131,7 +133,7 @@ export default function Hero() {
           {Array.from({ length: BANNER_REPEAT }).map((_, i) => (
             <span
               key={i}
-              className="inline-block px-6 text-white font-bold text-sm uppercase tracking-wider"
+              className="inline-block px-6 text-brand-dark font-bold text-sm uppercase tracking-wider"
             >
               {BANNER_TEXT}
             </span>
