@@ -42,17 +42,28 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Terrasmave – Camilan Homemade Organik",
-    description: "Camilan sehat, homemade, berbahan organik. Pesan sekarang!",
+    title: "Terrasmave – Es Krim Scoop Homemade Organik",
+    description:
+      "Es krim scoop homemade: pilih 2 atau 3 scoop rasa, topping custom, choco sauce & bread. Mulai Rp 7.000. Pesan via WhatsApp – Tanjung Priok, Jakarta Utara.",
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "id_ID",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Es krim scoop homemade Terrasmave",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Terrasmave – Camilan Homemade Organik",
-    description: "Camilan sehat, homemade, berbahan organik. Pesan sekarang!",
+    title: "Terrasmave – Es Krim Scoop Homemade Organik",
+    description:
+      "Es krim scoop homemade: pilih 2 atau 3 scoop rasa, topping custom, choco sauce & bread. Mulai Rp 7.000.",
+    images: ["/og-image.jpg"],
   },
 };
 
