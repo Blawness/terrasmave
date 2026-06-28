@@ -1,25 +1,22 @@
-// Placeholder testimoni — ganti dengan ulasan asli pelanggan.
-// Dipakai untuk section UI sekaligus Review + AggregateRating structured data.
-export const testimonials = [
-  {
-    name: "Rina W.",
-    rating: 5,
-    text: "Es krim scoop-nya enak banget! Bisa pilih 3 rasa sekaligus dan toppingnya melimpah. Choco sauce-nya juara.",
-  },
-  {
-    name: "Dimas A.",
-    rating: 5,
-    text: "Pesan via WhatsApp gampang, datangnya masih fresh. Anak-anak suka karena bisa custom rasa sendiri.",
-  },
-  {
-    name: "Putri L.",
-    rating: 4,
-    text: "Rasa organiknya kerasa, tidak terlalu manis. Favoritku kombinasi chocolate, strawberry, dan vanilla.",
-  },
-] as const;
+// Ulasan asli pelanggan dari Google Reviews.
+// Untuk update: cukup edit `testimonials.json` (tambah/ubah/hapus entri).
+// Dipakai untuk section UI (homepage + Kenapa Kami) sekaligus Review +
+// AggregateRating structured data (SEO). Rating dihitung otomatis dari data.
+import data from "./testimonials.json";
+
+export type Testimonial = {
+  name: string;
+  rating: number;
+  text: string;
+  loc?: string;
+};
+
+export const testimonials: Testimonial[] = data;
+
+const average = testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length;
 
 export const aggregateRating = {
-  ratingValue: 4.8,
+  ratingValue: Number(average.toFixed(1)),
   reviewCount: testimonials.length,
   bestRating: 5,
 };

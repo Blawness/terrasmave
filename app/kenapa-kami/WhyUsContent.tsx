@@ -4,6 +4,7 @@ import FadeIn from "../components/FadeIn";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote, MessageCircle } from "lucide-react";
 import { useCarousel } from "../hooks/useCarousel";
+import { testimonials } from "../data/testimonials";
 
 const DRAG_ELASTICITY = 0.3;
 
@@ -12,24 +13,6 @@ const sellingPoints = [
   { title: "Fresh Setiap Hari", desc: "Dibuat fresh sesuai pesanan" },
   { title: "Bahan Organik", desc: "Cokelat, vanilla, dan cream premium pilihan" },
   { title: "Pesan Mudah", desc: "Cukup chat WhatsApp, pesanan siap diantar" },
-];
-
-const testimonials = [
-  {
-    name: "Ibu Rina",
-    text: "Enak banget! Anakku suka banget yang rasa cokelat, creamy dan nggak terlalu manis.",
-    loc: "Tj. Priok",
-  },
-  {
-    name: "Kak Dian",
-    text: "Strawberry-nya seger, toppingnya juga renyah. Beda banget sama yang di supermarket.",
-    loc: "Sunter",
-  },
-  {
-    name: "Pak Hendra",
-    text: "Sering pesan buat acara keluarga. Semua suka, harga juga terjangkau!",
-    loc: "Kelapa Gading",
-  },
 ];
 
 export default function WhyUsContent() {
