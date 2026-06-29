@@ -5,7 +5,12 @@
       "mcp__context7__query-docs",
       "Bash(gh repo *)",
       "PowerShell(gh repo *)",
-      "PowerShell(winget install *)"
+      "PowerShell(winget install *)",
+      "Bash(convert -size 1200x630 'xc:#3e170b' '\\(' public/products/hero.webp -resize 600x600 '\\)' -gravity center -composite -quality 88 public/og-image.jpg)",
+      "Bash(identify -format \"%wx%h %m %b\\\\n\" public/og-image.jpg)",
+      "Bash(command -v magick)",
+      "Bash(command -v ffmpeg)",
+      "Bash(node -e \"console.log\\(require\\('sharp'\\)?'sharp ok':''\\)\")"
     ]
   }
 }
